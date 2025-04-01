@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.scribbledash.android.application.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -15,6 +16,7 @@ dependencies {
     // Use the Compose bundle
     implementation(libs.bundles.compose)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.koin.androidx.compose)
 
@@ -41,4 +43,9 @@ dependencies {
     implementation(libs.timber)
 
     implementation(libs.bundles.koin)
+
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
+    implementation(projects.core.presentation)
+
 }

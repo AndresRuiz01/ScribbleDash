@@ -9,5 +9,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    // api(libs.androidx.material3)
+    api(libs.androidx.compose.material3)
+    implementation(projects.core.domain)
 }
