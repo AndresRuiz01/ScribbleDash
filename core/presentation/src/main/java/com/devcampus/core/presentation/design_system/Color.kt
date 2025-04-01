@@ -1,4 +1,4 @@
-package com.devcampus.scribbledash.ui.theme
+package com.devcampus.core.presentation.design_system
 
 import androidx.compose.ui.graphics.Color
 
