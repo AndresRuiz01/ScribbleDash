@@ -7,7 +7,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import com.devcampus.scribbledash.R
+import com.devcampus.core.presentation.R
 
 val BagelFatOne = FontFamily(
     Font(
