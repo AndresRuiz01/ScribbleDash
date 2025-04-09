@@ -9,6 +9,25 @@ android {
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = "scribble"
+            keyPassword = "scribble"
+            storeFile = file("./keystore")
+            storePassword = "scribble"
+        }
+    }
+
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("release")
+            isDebuggable = false
+        }
+    }
+
 }
 
 dependencies {

@@ -7,14 +7,43 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
 import androidx.navigation.toRoute
+
+
 
 class NavAnimations {
 
     companion object {
 
-        fun enterAnim(
+        @Composable
+        fun TabNavHost(
+            navController: NavHostController,
+            modifier: Modifier = Modifier,
+            builder: NavGraphBuilder.() -> Unit
+        ) {
+            NavHost(
+                navController = navController,
+                startDestination = Home,
+                enterTransition = {
+                    tabEnterAnimation(initialState, targetState)
+                },
+                exitTransition = {
+                    tabExitAnimation(initialState, targetState)
+                },
+                modifier = modifier
+            ) {
+                builder()
+            }
+        }
+
+        private fun tabEnterAnimation(
             initialState: NavBackStackEntry,
             targetState: NavBackStackEntry
         ): EnterTransition {
@@ -40,7 +69,7 @@ class NavAnimations {
             }
         }
 
-        fun exitAnim(
+        private fun tabExitAnimation(
             initialState: NavBackStackEntry,
             targetState: NavBackStackEntry
         ): ExitTransition {
